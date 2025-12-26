@@ -93,6 +93,10 @@ def make_train_env(env_name, seed, n_threads, env_args):
                 from harl.envs.lag.lag_env import LAGEnv
 
                 env = LAGEnv(env_args)
+            elif env_name == "bvr_sim":
+                from harl.envs.bvr_sim.env_harl import BVRSimEnv
+
+                env = BVRSimEnv(rank, env_args)
             else:
                 print("Can not support the " + env_name + "environment.")
                 raise NotImplementedError
